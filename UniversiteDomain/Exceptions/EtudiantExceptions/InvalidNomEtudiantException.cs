@@ -1,7 +1,7 @@
 ﻿namespace UniversiteDomain.Exceptions.EtudiantExceptions;
 
 [Serializable]
-public class InvalidNomEtudiantException : Exception
+public partial class InvalidNomEtudiantException : Exception
 {
     public InvalidNomEtudiantException() : base() { }
     public InvalidNomEtudiantException(string message) : base(message) { }
