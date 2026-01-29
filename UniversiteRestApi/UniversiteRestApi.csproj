@@ -10,8 +10,19 @@
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.11" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.11" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
         <PackageReference Include="MySql.EntityFrameworkCore" Version="9.0.9" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\UniversiteDomainUnitTest\UniversiteDomainUnitTest.csproj" />
+      <ProjectReference Include="..\UniversiteDomain\UniversiteDomain.csproj" />
+      <ProjectReference Include="..\UniversiteEFDataProvider\UniversiteEFDataProvider.csproj" />
     </ItemGroup>
 
 </Project>
