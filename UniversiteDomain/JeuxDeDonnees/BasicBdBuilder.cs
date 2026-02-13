@@ -1,13 +1,12 @@
 ﻿using UniversiteDomain.DataAdapters.DataAdaptersFactory;
 using UniversiteDomain.Entities;
-// using UniversiteDomain.Entities.SecurityEntities;
 using UniversiteDomain.UseCases.EtudiantUseCases.Create;
 using UniversiteDomain.UseCases.NoteUseCases;
 using UniversiteDomain.UseCases.NoteUseCases.Create;
 using UniversiteDomain.UseCases.ParcoursUseCases.Create;
 using UniversiteDomain.UseCases.ParcoursUseCases.EtudiantDansParcours;
 using UniversiteDomain.UseCases.ParcoursUseCases.UeDansParcours;
-// using UniversiteDomain.UseCases.SecurityUseCases;
+using UniversiteDomain.UseCases.SecurityUseCases.Create;
 using UniversiteDomain.UseCases.UeUseCases.Create;
 
 namespace UniversiteDomain.JeuxDeDonnees;
@@ -159,33 +158,29 @@ public class BasicBdBuilder(IRepositoryFactory repositoryFactory) : BdBuilder(re
         }
     }
     
+    
     protected override async Task BuildRolesAsync()
     {
-				/*
-				// A décommenter quand on aura rajouté les rôles
         // Création des rôles dans la table aspnetroles
         await new CreateUniversiteRoleUseCase(repositoryFactory).ExecuteAsync(Roles.Responsable);
         await new CreateUniversiteRoleUseCase(repositoryFactory).ExecuteAsync(Roles.Scolarite);
         await new CreateUniversiteRoleUseCase(repositoryFactory).ExecuteAsync(Roles.Etudiant);
-				*/
     }
 
     protected override async Task BuildUsersAsync()
     {
-				/*
-				// A décommenter quand on aura rajouté les Users
         CreateUniversiteUserUseCase uc = new CreateUniversiteUserUseCase(repositoryFactory);
+        
         // Création des étudiants
         foreach (var etudiant in _etudiants)
         {
-            await uc.ExecuteAsync(etudiant.Email, etudiant.Email, this.Password, Roles.Etudiant,etudiant);
+            await uc.ExecuteAsync(etudiant.Email, etudiant.Email, this.Password, Roles.Etudiant, etudiant);
         }
         
-        // Création des responsbles
+        // Création des responsables
         foreach (var user in _usersNonEtudiants)
         {
             await uc.ExecuteAsync(user.Email, user.Email, this.Password, user.Role, null);
         }
-				*/
     }
 }

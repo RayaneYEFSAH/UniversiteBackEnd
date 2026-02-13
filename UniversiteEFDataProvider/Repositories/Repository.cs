@@ -22,7 +22,7 @@ public abstract class Repository<T>(UniversiteDbContext context) : IRepository<T
         await Context.SaveChangesAsync();
     }
     
-    public async Task DeleteAsync(long id)
+    public virtual async Task DeleteAsync(long id)
     {
         var entity = await FindAsync(id);
         

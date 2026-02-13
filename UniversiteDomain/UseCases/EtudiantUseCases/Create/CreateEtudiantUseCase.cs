@@ -52,4 +52,11 @@ public class CreateEtudiantUseCase(IRepositoryFactory repositoryFactory)
         if (etudiant.Nom.Length < 3) 
             throw new InvalidNomEtudiantException(etudiant.Nom +" incorrect - Le nom d'un étudiant doit contenir plus de 3 caractères");
     }
+    
+    public bool IsAuthorized(string role)
+    {
+        // Seuls les responsables et la scolarité peuvent créer un étudiant
+        return role.Equals(UniversiteDomain.Entities.Roles.Responsable) 
+               || role.Equals(UniversiteDomain.Entities.Roles.Scolarite);
+    }
 }
